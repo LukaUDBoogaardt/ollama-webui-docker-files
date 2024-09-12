@@ -1,0 +1,13 @@
+services:
+  ollama:
+    # GPU support
+    deploy:
+      resources:
+        reservations:
+          devices:
+          # Replace with amdgpu for amd
+          # For amd might also need to add https://github.com/open-webui/open-webui/blob/main/docker-compose.amdgpu.yaml
+            - driver: nvidia
+              count: 1
+              capabilities:
+                - gpu
